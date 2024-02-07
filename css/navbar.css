@@ -1,0 +1,183 @@
+body {
+    margin: 0;
+}
+
+header {
+    height: 84px;
+    background-color: white;
+    border-bottom: 1px solid #374151;
+    position: sticky;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    z-index: 10;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar {
+    display: flex;
+    width: 100vw;
+    height: 84px;
+}
+
+.navbar img{
+    width: 150px;
+    margin-top: -25px;
+}
+
+.navbarLeft {
+    display: flex;
+    margin-left: 35px;
+    margin-top: 27px;
+    margin-bottom: 27px;
+}
+
+.navbarCenter {
+    display: none;
+}
+
+.navbarRight {
+    display: flex;
+    align-items: center;
+    margin-right: 35px;
+    margin-left: auto;
+}
+
+.navDropdownBtnBurger {
+    height: 84px;
+}
+
+.navDropdownBtn {
+    padding-top: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 35px;
+    background-color: #fff;
+    color: #fff;
+    border: none;
+}
+
+.navDropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.navDropdownContent {
+    display: none;
+    position: absolute;
+    right: 0;
+    width: 100vw;
+    background-color: var(--darkGray);
+    min-width: 430px;
+}
+
+.navDropdownContent a {
+    color: #fff;
+    padding: 8px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.navDropdownContent a:hover:focus {
+    background-color: var(--moonstone);
+}
+
+.navDropdown:hover .navDropdownContent {
+    display: block;
+}
+
+.navDropdownContentInput {
+    display: flex;
+    justify-content: center;
+}
+
+.navDropdownContentInput input{
+    display: flex;
+    justify-content: center;
+    width: 360px;
+    margin-top: 24px;
+    background-color: var(--darkGray);
+    border: 1px solid #fff;
+    border-radius: 16px;
+    padding-left: 16px;
+    height: 48px;
+    color: #fff;
+}
+
+.navDropdownContentMain {
+    display: flex;
+    justify-content: center;
+    font-size: 2.25rem;
+    font-weight: 400;
+    letter-spacing: -3%;
+    line-height: 39px;
+    margin: 0 35px;
+}
+
+.navDropdownContentRight {
+    margin:8px 0 0 10px;
+}
+
+.navDropdownContentLeft {
+    margin-top: 8px;
+}
+
+.fa-solid {
+    font-size: 2rem;
+}
+
+.fa-bag-shopping {
+    font-size: 1.7rem;
+}
+
+
+/* Tablet and desktop */
+@media only screen and (min-width: 1024px) {
+    header {
+        font-size: 20px;
+        line-height: 39px;
+        letter-spacing: -2%;
+    }
+
+    .navbarLeft {
+        margin-left: 70px;
+    }
+
+    .navbarCenter {
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+    }
+
+    .navbarCenter a {
+        text-decoration: none;
+        color: #374151;
+    }
+
+    .navbarRight {
+        margin-right: 70px;
+    }
+
+    .navbar ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .navbar li {
+        display: inline-block;
+        margin-left: 56px;
+    }
+
+    .navbar li:hover {
+        text-decoration: underline;
+    }
+
+    #movies {
+        margin-left: 0;
+    }
+
+    .navDropdown {
+        display: none;
+    }
+}

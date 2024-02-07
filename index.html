@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This page sells fabulous raincoats for men and women">
+    <meta name="author" content="Kjetil Harneshaug Hauger">
+    <meta name="keywords" content="raincoat, designer, colorful, sturdy, sustainable">
+    <link
+      rel="icon"
+      sizes="32x32"
+      href="assets/images/logo/logogreen.svg">
+    <title>Rainydays | Home</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    >
+    <script
+      src="https://kit.fontawesome.com/5d6787b096.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/main.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbarLeft">
+                <a href="index.html">
+                    <img 
+                        src="assets/images/squareEyesLogo.png" 
+                        alt="SquareEyes">
+                </a>
+            </div>
+            <div class="navbarCenter">
+                <ul>
+                    <li id="movies">
+                        <a 
+                            href="products.html">
+                            Movies
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbarRight">
+                <a class="shoppingBag" href="checkout.html" aria-label="shoppingBag icon">
+                    <i class="fa-solid fa-bag-shopping" style="color: #374151"></i>
+                </a>
+            </div>
+            <div class="navDropdown">
+                <div class="navDropdownBtnBurger">
+                    <button class="navDropdownBtn"><i class="fa-solid fa-bars" style="color: #374151"></i></button>
+                    </div>
+                    <div class="navDropdownContent">
+                    <div class="navDropdownContentInput">
+                        <input type="text" placeholder="Search...">
+                    </div>
+                    <div class="navDropdownContentMain">
+                        <div class="navDropdownContentLeft">
+                            <a href="products.html">Jackets</a>
+                            <a href="#">Pants</a>
+                            <a href="#">Boots</a>
+                        </div>
+                        <div class="navDropdownContentRight">
+                            <a href="about.html">About</a>
+                            <a href="contact.html">Contact</a>
+                            <a href="#">Locations</a>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div id="boxFilter">
+            <select id="filter" type="text" aria-label="filter">
+                <option value="all" id="filterAll">All</option>    
+                <option value="men" id="filterMen">Men</option>    
+                <option value="women" id="filterWomen">Women</option>    
+            </select>
+        </div>
+        <div id="content">
+        </div>
+    </main>
+    <footer class="footer">
+        <ul>
+            <li>
+                <i class="fa-brands fa-facebook-f" style="color: white"></i>
+                <a href="http://www.facebook.com" target="_blank">
+                    Facebook
+                </a>
+            </li>
+            <li>
+                <i class="fa-brands fa-twitter" style="color: #ffffff;"></i>
+                <a href="http://www.twitter.com" target="_blank">Twitter</a>
+            </li>
+            <li>
+                <i class="fa-brands fa-youtube" style="color: #ffffff;"></i>
+                <a href="http://www.youtube.com" target="_blank">Youtube</a>
+            </li>
+            <li>
+                <i class="fa-brands fa-linkedin-in" style="color: #ffffff;"></i>
+                <a href="http://www.linkedin.com" target="_blank">LinkedIn</a>
+            </li>
+            <li>
+                <i class="fa-brands fa-instagram" style="color: #ffffff;"></i>
+                <a href="http://www.instagram.com" target="_blank">Instagram</a>
+            </li>
+        </ul>
+        <div class="logoBottomLeft">
+                <img 
+                src="assets/images/squareEyesLogo.png" 
+                alt="SquareEyes">
+            <p class="copyright">
+                © 2023 Rainydays.no 999 999 999 MVA
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

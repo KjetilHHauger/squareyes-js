@@ -1,0 +1,33 @@
+.footer {
+    background-color: #253031;
+    color: #FFF;
+    font-size: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer ul {
+    padding-left: 75px;
+    list-style: none;
+}
+
+.footer ul li a {
+    color: #FFF;
+    text-decoration: none;
+}
+
+.footer .fa-brands {
+    margin-right: 8px;
+    width: 12px;
+}
+
+.logoBottomLeft {
+   margin-right: 75px;
+}
+
+.logoBottomLeft img {
+    width: 150px;
+    padding-top: 8px;
+}
