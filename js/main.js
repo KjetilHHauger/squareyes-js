@@ -67,3 +67,8 @@ function renderError() {
 }
 
 fetchApi();
+
+let action = apiData.filter(apiData => apiData.genre == "Action")
+for (let a = 0; a < action.length; a++) {
+    console.log("genre", action[a].genre)
+}
