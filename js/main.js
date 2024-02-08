@@ -1,7 +1,27 @@
 const content = document.getElementById("content");
 const men = document.getElementById("filterMen");
 const apiUrl = 'https://api.noroff.dev/api/v1/square-eyes';
+const actionFilter = document.getElementById("action");
+const comedyFilter = document.getElementById("comedy");
+const dramaFilter = document.getElementById("drama");
+const horrorFilter = document.getElementById("horror");
+const kidsFilter = document.getElementById("kids");
 
+actionFilter.addEventListener("click", () => {
+    filterAction("Action");
+});
+comedyFilter.addEventListener("click", () => {
+    filterComedy("Comedy");
+});
+dramaFilter.addEventListener("click", () => {
+    filterDrama("Drama");
+});
+horrorFilter.addEventListener("click", () => {
+    filterHorror("Horror");
+});
+kidsFilter.addEventListener("click", () => {
+    filterKids("Kids");
+});
 
 let apiData = [];
 
@@ -47,7 +67,6 @@ async function fetchApi() {
                         <img src="${data.image}" alt="Image of ${data.title}">
                         <img src="assets/images/sale.webp" id="saleImg" alt="Sale tag">
                     </div>
-                    
                 `;
             } else {
                 content.innerHTML += `
@@ -69,7 +88,100 @@ function renderError() {
 
 fetchApi();
 
-let action = apiData.filter(apiData => apiData.genre == "Action")
-for (let a = 0; a < action.length; a++) {
-    console.log("genre", action[a].genre)
+function filterFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+window.onclick = function(event) {
+    if (!event.target.matches('#filterButton')) {
+        let dropdowns = document.getElementsByClassName("dropdown-content")
+        for (let i = 0; i < dropdowns.length; i++) {
+            let openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
+    }
+}
+
+function filterAction(genreToFilterBy) {
+    content.innerHTML = "";
+    let actionResults = [];
+    for (const data of apiData) {
+        if (data.genre === genreToFilterBy) {
+            actionResults.push(data);
+        } if (data.genre === "Action"){
+            content.innerHTML += `
+                    <div class="card">
+                        <img src="${data.image}" alt="Image of ${data.title}">
+                        <img src="assets/images/sale.webp" id="saleImg" alt="Sale tag">
+                    </div>
+                `;
+        }
+    } 
+}
+
+function filterComedy(genreToFilterBy) {
+    content.innerHTML = "";
+    let comedyResults = [];
+    for (const data of apiData) {
+        if (data.genre === genreToFilterBy) {
+            comedyResults.push(data);
+        } if (data.genre === "Comedy"){
+            content.innerHTML += `
+                    <div class="card">
+                        <img src="${data.image}" alt="Image of ${data.title}">
+                        <img src="assets/images/sale.webp" id="saleImg" alt="Sale tag">
+                    </div>
+                `;
+        }
+    } 
+}
+function filterDrama(genreToFilterBy) {
+    content.innerHTML = "";
+    let dramaResults = [];
+    for (const data of apiData) {
+        if (data.genre === genreToFilterBy) {
+            dramaResults.push(data);
+        } if (data.genre === "Drama"){
+            content.innerHTML += `
+                    <div class="card">
+                        <img src="${data.image}" alt="Image of ${data.title}">
+                        <img src="assets/images/sale.webp" id="saleImg" alt="Sale tag">
+                    </div>
+                `;
+        }
+    } 
+}
+function filterHorror(genreToFilterBy) {
+    content.innerHTML = "";
+    let horrorResults = [];
+    for (const data of apiData) {
+        if (data.genre === genreToFilterBy) {
+            horrorResults.push(data);
+        } if (data.genre === "Horror"){
+            content.innerHTML += `
+                    <div class="card">
+                        <img src="${data.image}" alt="Image of ${data.title}">
+                        <img src="assets/images/sale.webp" id="saleImg" alt="Sale tag">
+                    </div>
+                `;
+        }
+    } 
+}
+function filterKids(genreToFilterBy) {
+    content.innerHTML = "";
+    let kidsResults = [];
+    for (const data of apiData) {
+        if (data.genre === genreToFilterBy) {
+            kidsResults.push(data);
+        } if (data.genre === "Kids"){
+            content.innerHTML += `
+                    <div class="card">
+                        <img src="${data.image}" alt="Image of ${data.title}">
+                        <img src="assets/images/sale.webp" id="saleImg" alt="Sale tag">
+                    </div>
+                `;
+        }
+    } 
 }
