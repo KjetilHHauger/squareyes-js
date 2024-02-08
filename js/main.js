@@ -47,6 +47,7 @@ async function fetchApi() {
                         <img src="${data.image}" alt="Image of ${data.title}">
                         <img src="assets/images/sale.webp" id="saleImg" alt="Sale tag">
                     </div>
+                    
                 `;
             } else {
                 content.innerHTML += `
