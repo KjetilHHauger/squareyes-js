@@ -1,12 +1,17 @@
 const content = document.getElementById("content");
 const men = document.getElementById("filterMen");
 const apiUrl = 'https://api.noroff.dev/api/v1/square-eyes';
+const allFilter = document.getElementById("all");
 const actionFilter = document.getElementById("action");
 const comedyFilter = document.getElementById("comedy");
 const dramaFilter = document.getElementById("drama");
 const horrorFilter = document.getElementById("horror");
 const kidsFilter = document.getElementById("kids");
+const cardBtn = document.getElementById("card");
 
+allFilter.addEventListener("click", () => {
+    filterAll("All");
+});
 actionFilter.addEventListener("click", () => {
     filterAction("Action");
 });
@@ -22,6 +27,8 @@ horrorFilter.addEventListener("click", () => {
 kidsFilter.addEventListener("click", () => {
     filterKids("Kids");
 });
+
+
 
 let apiData = [];
 
@@ -63,14 +70,14 @@ async function fetchApi() {
             let data = apiData[i];
             if (data.onSale === true) {
                 content.innerHTML += `
-                    <div class="card">
+                    <div id="card">
                         <img src="${data.image}" alt="Image of ${data.title}">
                         <img src="assets/images/sale.webp" id="saleImg" alt="Sale tag">
                     </div>
                 `;
             } else {
                 content.innerHTML += `
-                    <div class="card">
+                    <div id="card">
                         <img src="${data.image}" alt="Image of ${data.title}">
                     </div>
                 `;
@@ -83,12 +90,12 @@ async function fetchApi() {
 
 function renderError() {
     const error = document.getElementById("content");
-    error.innerHTML = "ERROR";
+    error.innerHTML = "ERROR, could not load API data. Please reload";
 }
 
 fetchApi();
 
-function filterFunction() {
+function dropdownFilterFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
 
@@ -103,7 +110,10 @@ window.onclick = function(event) {
         }
     }
 }
-
+function filterAll() {
+    content.innerHTML = "";
+    fetchApi()
+}
 function filterAction(genreToFilterBy) {
     content.innerHTML = "";
     let actionResults = [];
@@ -112,7 +122,7 @@ function filterAction(genreToFilterBy) {
             actionResults.push(data);
         } if (data.genre === "Action"){
             content.innerHTML += `
-                    <div class="card">
+                    <div id="card">
                         <img src="${data.image}" alt="Image of ${data.title}">
                         <img src="assets/images/sale.webp" id="saleImg" alt="Sale tag">
                     </div>
@@ -120,7 +130,6 @@ function filterAction(genreToFilterBy) {
         }
     } 
 }
-
 function filterComedy(genreToFilterBy) {
     content.innerHTML = "";
     let comedyResults = [];
@@ -129,7 +138,7 @@ function filterComedy(genreToFilterBy) {
             comedyResults.push(data);
         } if (data.genre === "Comedy"){
             content.innerHTML += `
-                    <div class="card">
+                    <div id="card">
                         <img src="${data.image}" alt="Image of ${data.title}">
                         <img src="assets/images/sale.webp" id="saleImg" alt="Sale tag">
                     </div>
@@ -145,7 +154,7 @@ function filterDrama(genreToFilterBy) {
             dramaResults.push(data);
         } if (data.genre === "Drama"){
             content.innerHTML += `
-                    <div class="card">
+                    <div id="card">
                         <img src="${data.image}" alt="Image of ${data.title}">
                         <img src="assets/images/sale.webp" id="saleImg" alt="Sale tag">
                     </div>
@@ -161,7 +170,7 @@ function filterHorror(genreToFilterBy) {
             horrorResults.push(data);
         } if (data.genre === "Horror"){
             content.innerHTML += `
-                    <div class="card">
+                    <div id="card">
                         <img src="${data.image}" alt="Image of ${data.title}">
                         <img src="assets/images/sale.webp" id="saleImg" alt="Sale tag">
                     </div>
@@ -177,7 +186,7 @@ function filterKids(genreToFilterBy) {
             kidsResults.push(data);
         } if (data.genre === "Kids"){
             content.innerHTML += `
-                    <div class="card">
+                    <div id="card">
                         <img src="${data.image}" alt="Image of ${data.title}">
                         <img src="assets/images/sale.webp" id="saleImg" alt="Sale tag">
                     </div>
@@ -185,3 +194,11 @@ function filterKids(genreToFilterBy) {
         }
     } 
 }
+
+// cardBtn.addEventListener("click", () => {
+//     onCardClick();
+// });
+
+// function onCardClick() {
+//     window.location.replace(`movie.html/?id=data.id`)
+// }
