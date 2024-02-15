@@ -22,7 +22,6 @@
     cursor: pointer;
 }
 
-
 #filterButton:hover, #filterButton:focus {
     background-color: #3c4a4c;
 }
@@ -56,16 +55,7 @@
     display: flex;
 }
 
-#saleImg {
-    position: absolute;
-    max-width: 100px;
-    top: 270px;
-    left: 330px;
-    rotate: -30deg;
-}
-
 #card {
-    position: relative;
     display: flex;
     flex-direction: column;
     width: 400px;
@@ -83,11 +73,15 @@
     object-fit: contain;
 }
 
-.price, .discounted  {
+#price  {
     display: flex;
     justify-content: space-between;
-    
-    padding: 0;
+    padding: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #253031;
 }
 
 .discounted {
