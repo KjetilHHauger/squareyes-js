@@ -7,10 +7,12 @@ const dramaFilter = document.getElementById("drama");
 const horrorFilter = document.getElementById("horror");
 const kidsFilter = document.getElementById("kids");
 const movieCard = document.getElementById("card");
+const loader = document.getElementById("loader")
 
 let apiData = [];
 
 async function fetchApi() {
+    loader.style.display = "block"
     try {
         const response = await fetch(apiUrl);
         const dataResult = await response.json();
@@ -45,6 +47,7 @@ async function fetchApi() {
     } catch (error) {
         renderError();
     }
+    loader.style.display = "none"
 }
 
 function renderError() {
