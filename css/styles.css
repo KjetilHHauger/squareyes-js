@@ -12,6 +12,12 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+#checkOutContent {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 5rem 0 8rem;
+}
+
 #dropdown {
     display: flex;
     justify-content: center;
@@ -115,6 +121,7 @@ body.showCart .content {
 .cartTab h2 {
     padding: 20px;
     margin: 0;
+    padding-bottom: 64px;
     font-weight: 300;
     border-bottom: 1px solid #eee;
 }
@@ -149,6 +156,29 @@ body.showCart .content {
 .remove {
     height: 20px;
     width: 80px;
+}
+
+#checkoutForm {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 15vw;
+}
+
+#checkoutForm label {
+    margin-top: 1rem;
+}
+
+#checkOutBasket {
+    margin-top: 2rem;
+    border: 1px solid #374151;
+    min-height: 50vh;
+    width: 30vw;
+    border-radius:4px;
+}
+
+#checkOutBasket img{
+    width: 10vw;
 }
 
 .footer {
