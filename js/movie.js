@@ -2,6 +2,8 @@ const apiUrl = 'https://api.noroff.dev/api/v1/square-eyes';
 const content = document.getElementById("content");
 const listCart = document.querySelector(".listCart")
 const loader = document.getElementById("loader")
+const checkout = document.querySelector(".checkOut")
+
 
 function getIdFromURL() {
     let url = window.location.href;
@@ -37,61 +39,68 @@ async function fetchApi() {
                     const moviePrice = data.price;
                     const movieDiscounted = data.discountedPrice;
                     const movieOnSale = data.onSale;
-                    addToCart(movieTitle, moviePrice, movieDiscounted, movieOnSale);
+                    const movieImage = data.image;
+                    addToCart(movieTitle, moviePrice, movieDiscounted, movieOnSale, movieImage);
                 });
             }
         }
     } catch (error) {
         renderError();
     }
+    
     loader.style.display = "none"
 }
 
 const cart = JSON.parse(localStorage.getItem("myCart")) || []
 
-function addToCart(title, price, discountedPrice, movieOnSale) {
+function addToCart(title, price, discountedPrice, movieOnSale, movieImage) {
     const movieInCart = cart.find(cartItem => cartItem.title === title)
     if (movieInCart) {
         alert("Item is already in cart")
     } else {
-        if(movieOnSale === true) {
-            cart.push({title: title, discountedPrice: discountedPrice})
+            cart.push({title: title, discountedPrice: discountedPrice, price: price, movieOnSale: movieOnSale, movieImage: movieImage})
             localStorage.setItem("myCart", JSON.stringify(cart))
-            updateCart()
-        }
-        if(movieOnSale === false) {
-            cart.push({title: title, price: price})
-            localStorage.setItem("myCart", JSON.stringify(cart))
-            updateCart()
+            updateCart(true || false)
         }
     }
-        
-    }
-
 
 function updateCart(movieOnSale) {
     const listCart = document.querySelector(".listCart");
     listCart.innerHTML = "";
     cart.forEach(item => {
-        if (movieOnSale === false) {
+        if (movieOnSale === true) {
         listCart.innerHTML += `
             <span class="cartCard">
                 <h4>${item.title}</h4>
-                <h5>${item.price}</h5>
-                <button class="remove">Remove</button></span>
+                <h5>${item.discountedPrice}</h5>
+                <button class="remove">Remove</button>
+                </span>
                 `;
-            }else {
+            } if(movieOnSale === false) {
                 listCart.innerHTML += `
                 <span class="cartCard">
                 <h4>${item.title}</h4>
-                <h5>${item.discountedPrice}</h5>
-                <button class="remove">Remove</button></span>
+                <h5>${item.price}</h5>
+                <button class="remove">Remove</button>
+                </span>
                 `;
             }
+        })
+        const removeBtn = document.querySelectorAll(".remove")
+        removeBtn.forEach(button => {
+        button.addEventListener("click", () => {
+            const removeMovie = button.parentElement
+            const indexToRemove = Array.from(removeBtn).indexOf(button)
+            removeMovie.remove()
+            cart.splice(indexToRemove,1)
+            localStorage.removeItem("myCart")
+            localStorage.setItem("myCart", JSON.stringify(cart))
+            
+        })
     })
 }
 
-updateCart()
+updateCart(true || false)
 
 
 fetchApi();
@@ -108,6 +117,9 @@ closeCart.addEventListener("click", () => {
     body.classList.toggle("showCart")
 })
 
+checkout.addEventListener("click", () => {
+    location.href="../checkout.html"
+})
 
 
 
