@@ -56,6 +56,7 @@ function calculateTotal() {
       total += moviePrice.discountedPrice;
     }
   });
+  total = total.toFixed(2)
   checkOutBasket.innerHTML += `<div class="basketTotal"><h3>Total NOK: ${total}</div>`;
 }
 
