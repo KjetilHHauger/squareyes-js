@@ -24,7 +24,7 @@ async function fetchApi() {
     apiData = dataResult;
     for (let i = 0; i < apiData.length; i++) {
       let data = apiData[i];
-      if (data.id === id) {
+      if (data.id === id && data.onSale === true) {
         content.innerHTML += `
                     <div id="movieCard">
                         <div class="movieCardImg">
@@ -34,7 +34,7 @@ async function fetchApi() {
                         <h2>${data.title}</h2>
                         <h3>${data.rating}</h3>
                         <h3>${data.released}</h3>
-                        <h3>${data.price}<span>${data.discountedPrice}</span></h3>
+                        <h3><s>${data.price}</s><span class="discounted">${data.discountedPrice}</span></h3>
                         <p>${data.description}</p>
                         <button class="addToCart">Add to cart</button>
                         </div>
@@ -54,6 +54,36 @@ async function fetchApi() {
             movieImage
           );
         });
+      } if (data.id === id && data.onSale === false) {
+        content.innerHTML += `
+                    <div id="movieCard">
+                        <div class="movieCardImg">
+                          <img src="${data.image}" alt="Image of ${data.title}">
+                        </div>
+                        <div class="movieCardInfo">
+                        <h2>${data.title}</h2>
+                        <h3>${data.rating}</h3>
+                        <h3>${data.released}</h3>
+                        <h3>${data.price}</span></h3>
+                        <p>${data.description}</p>
+                        <button class="addToCart">Add to cart</button>
+                        </div>
+                    </div>
+                `;
+                document.querySelector(".addToCart").addEventListener("click", () => {
+                  const movieTitle = data.title;
+                  const moviePrice = data.price;
+                  const movieDiscounted = data.discountedPrice;
+                  const movieOnSale = data.onSale;
+                  const movieImage = data.image;
+                  addToCart(
+                    movieTitle,
+                    moviePrice,
+                    movieDiscounted,
+                    movieOnSale,
+                    movieImage
+                  );
+                });
       }
     }
   } catch (error) {
@@ -82,39 +112,44 @@ function addToCart(title, price, discountedPrice, movieOnSale, movieImage) {
     updateCart(true || false);
   }
 }
+function removeCartMovie(event) {
+  const removeBtn = event.target;
+  const removeMovie = removeBtn.parentElement;
+  const movieToRemove = Array.from(removeMovie.parentElement.children).indexOf(
+    removeMovie
+  );
+  removeMovie.remove();
+  cart.splice(movieToRemove, 1);
+  localStorage.setItem("myCart", JSON.stringify(cart));
+  updateCart(true || false);
+}
 function updateCart(movieOnSale) {
   const listCart = document.querySelector(".listCart");
   listCart.innerHTML = "";
   cart.forEach((item) => {
     if (movieOnSale === true) {
       listCart.innerHTML += `
-            <span class="cartCard">
-                <h4>${item.title}</h4>
-                <h5>${item.discountedPrice}</h5>
-                <button class="remove">Remove</button>
-                </span>
-                `;
+        <span class="cartCard">
+          <h4>${item.title}</h4>
+          <h5>${item.discountedPrice}</h5>
+          <button class="remove">Remove</button>
+        </span>
+        `;
     }
     if (movieOnSale === false) {
       listCart.innerHTML += `
-                <span class="cartCard">
-                <h4>${item.title}</h4>
-                <h5>${item.price}</h5>
-                <button class="remove">Remove</button>
-                </span>
-                `;
+        <span class="cartCard">
+          <h4>${item.title}</h4>
+          <h5>${item.price}</h5>
+          <button class="remove">Remove</button>
+        </span>
+        `;
     }
   });
   const removeBtn = document.querySelectorAll(".remove");
   removeBtn.forEach((button) => {
-    button.addEventListener("click", () => {
-      const removeMovie = button.parentElement;
-      const indexToRemove = Array.from(removeBtn).indexOf(button);
-      removeMovie.remove();
-      cart.splice(indexToRemove, 1);
-      localStorage.removeItem("myCart");
-      localStorage.setItem("myCart", JSON.stringify(cart));
-    });
+    button.removeEventListener("click", removeCartMovie);
+    button.addEventListener("click", removeCartMovie);
   });
   calculateTotal();
 }
@@ -128,6 +163,7 @@ function calculateTotal() {
       total += moviePrice.discountedPrice;
     }
   });
+  total = total.toFixed(2)
   listCart.innerHTML += `<div class="basketTotal"><h3>Total NOK: ${total}</div>`;
 }
 
@@ -138,7 +174,16 @@ closeCart.addEventListener("click", () => {
   body.classList.toggle("showCart");
 });
 checkout.addEventListener("click", () => {
-  location.href = "../checkout.html";
+  if (cart.length === 0) {
+    alert("Cart is empty");
+  } else {
+    location.href = "../checkout.html";
+  }
+});
+document.addEventListener("click", function (removeEvent) {
+  if (removeEvent.target.classList.contains("remove")) {
+    removeCartMovie(removeEvent);
+  }
 });
 
 updateCart(true || false);

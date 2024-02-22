@@ -31,7 +31,7 @@ async function fetchApi() {
                         <div id="card">
                             <img src="${data.image}" alt="Image of ${data.title}">
                             <div id="price">
-                            <span class="price">${data.price}</span>
+                            <span class="price"><s>${data.price}</s></span>
                             <span class="discounted">${data.discountedPrice}</span>
                             </div>
                         </div>
@@ -226,6 +226,15 @@ function filterKids(genreToFilterBy) {
 function dropdownFilterFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
+function removeCartMovie(event) {
+  const removeBtn = event.target;
+  const removeMovie = removeBtn.parentElement;
+  const movieToRemove = Array.from(removeMovie.parentElement.children).indexOf(removeMovie);
+  removeMovie.remove();
+  cart.splice(movieToRemove, 1);
+  localStorage.setItem("myCart", JSON.stringify(cart));
+  updateCart(true || false);
+}
 function updateCart(movieOnSale) {
   const listCart = document.querySelector(".listCart");
   listCart.innerHTML = "";
@@ -251,15 +260,9 @@ function updateCart(movieOnSale) {
   });
   const removeBtn = document.querySelectorAll(".remove");
   removeBtn.forEach((button) => {
-    button.addEventListener("click", () => {
-      const removeMovie = button.parentElement;
-      const indexToRemove = Array.from(removeBtn).indexOf(button);
-      removeMovie.remove();
-      cart.splice(indexToRemove, 1);
-      localStorage.removeItem("myCart");
-      localStorage.setItem("myCart", JSON.stringify(cart));
+      button.removeEventListener("click", removeCartMovie);
+      button.addEventListener("click", removeCartMovie);
     });
-  });
   calculateTotal();
 }
 function calculateTotal() {
@@ -272,6 +275,7 @@ function calculateTotal() {
       total += moviePrice.discountedPrice;
     }
   });
+  total = total.toFixed(2)
   listCart.innerHTML += `<div class="basketTotal"><h3>Total NOK: ${total}</div>`;
 }
 
@@ -312,8 +316,18 @@ closeCart.addEventListener("click", () => {
   body.classList.toggle("showCart");
 });
 checkout.addEventListener("click", () => {
-  location.href = "../checkout.html";
+  if (cart.length === 0) {
+    alert("Cart is empty");
+  } else {
+    location.href = "../checkout.html";
+  }
 });
+document.addEventListener("click", function(removeEvent) {
+  if (removeEvent.target.classList.contains("remove")) {
+    removeCartMovie(removeEvent)
+  }
+})
+
 
 fetchApi();
 
