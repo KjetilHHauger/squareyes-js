@@ -41,7 +41,7 @@ function checkOutButton() {
                 Checkout
         </button>`;
   }
-  const formCheckOut = document.querySelector(".formCheckOut")
+  const formCheckOut = document.querySelector(".formCheckOut");
   formCheckOut.addEventListener("click", () => {
     location.href = "../success.html";
   });
@@ -56,7 +56,7 @@ function calculateTotal() {
       total += moviePrice.discountedPrice;
     }
   });
-  total = total.toFixed(2)
+  total = total.toFixed(2);
   checkOutBasket.innerHTML += `<div class="basketTotal"><h3>Total NOK: ${total}</div>`;
 }
 
