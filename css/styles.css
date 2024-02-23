@@ -1,263 +1,264 @@
 body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
 }
 
 #content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    row-gap: 4rem;
-    margin: 3rem 70px 0 70px;
-    font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  row-gap: 4rem;
+  margin: 3rem 70px 0 70px;
+  font-family: "Poppins", sans-serif;
 }
 
 #checkOutContent {
-    display: flex;
-    justify-content: space-between;
-    margin: 0 5rem 0 8rem;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 5rem 0 8rem;
 }
 
 #dropdown {
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
 }
 
 #filterButton {
-    background-color: #253031;
-    padding: 0.5rem;
-    width: 100px;
-    color: white;
-    border: none;
-    cursor: pointer;
+  background-color: #253031;
+  padding: 0.5rem;
+  width: 100px;
+  color: white;
+  border: none;
+  cursor: pointer;
 }
 
-#filterButton:hover, #filterButton:focus {
-    background-color: #3c4a4c;
+#filterButton:hover,
+#filterButton:focus {
+  background-color: #3c4a4c;
 }
-  
+
 .dropdown {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 }
-  
+
 .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #fff;
-    min-width: 100px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 100px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
-  
+
 .dropdown-content a {
-    color: #253031;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
+  color: #253031;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
 }
 
 .dropdown-content a:hover {
-    background-color: #ddd;
+  background-color: #ddd;
 }
-  
+
 .show {
-    display: flex;
+  display: flex;
 }
 
 #card {
-    display: flex;
-    flex-direction: column;
-    width: 400px;
-    padding: 1rem;
-    border-radius: 4px;
-    transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  padding: 1rem;
+  border-radius: 4px;
+  transition: 0.3s;
 }
 
 #card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 #card img {
-    height: 600px;
-    object-fit: contain;
+  height: 600px;
+  object-fit: contain;
 }
 
-#price  {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
+#price {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
 }
 
 a {
-    text-decoration: none;
-    color: #253031;
+  text-decoration: none;
+  color: #253031;
 }
 
 .discounted {
-    color: red;
-    font-size: 1.3rem;
-    font-weight: 600;
-    padding-left: 2rem;
+  color: red;
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding-left: 2rem;
 }
 
 .cartTab {
-    width: 400px;
-    background-color: #374151;
-    color: #eee;
-    position: fixed;
-    inset: 0 -400px 0 auto;
-    display: grid;
-    grid-template-rows: 70px 1fr 70px;
-    transition: .5s;
+  width: 400px;
+  background-color: #374151;
+  color: #eee;
+  position: fixed;
+  inset: 0 -400px 0 auto;
+  display: grid;
+  grid-template-rows: 70px 1fr 70px;
+  transition: 0.5s;
 }
 
 #movieCard {
-    display: flex;
+  display: flex;
 }
 
 .movieCardInfo {
-    margin-left: 2rem;
+  margin-left: 2rem;
 }
 
 .addToCart {
-    width: 200px;
-    height: 50px;
+  width: 200px;
+  height: 50px;
 }
 
-.movieCardImg img{
-    width: 30vw;
+.movieCardImg img {
+  width: 30vw;
 }
 
 body.showCart .cartTab {
-    right: 0;
+  right: 0;
 }
 
 body.showCart .content {
-    transform: translateX(-250px);
+  transform: translateX(-250px);
 }
 .cartTab {
-    overflow: scroll;
+  overflow: scroll;
 }
 
 .cartTab h2 {
-    padding: 20px;
-    margin: 0;
-    padding-bottom: 64px;
-    font-weight: 300;
-    border-bottom: 1px solid #eee;
+  padding: 20px;
+  margin: 0;
+  padding-bottom: 64px;
+  font-weight: 300;
+  border-bottom: 1px solid #eee;
 }
 
 .cartTab .btn {
-    display: grid;
-    grid-template-columns: repeat(2,  1fr);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .cartTab button {
-    background-color: #e8bc0e;
-    border: none;
-    font-weight: 500;
-    cursor: pointer;
+  background-color: #e8bc0e;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
 }
 
 .cartTab .close {
-    background-color: #eee;
+  background-color: #eee;
 }
 
 .cartCard {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px 0 20px;
 }
 
-.cartCard h4{
-    margin: 0;
+.cartCard h4 {
+  margin: 0;
 }
 
 .remove {
-    height: 20px;
-    width: 80px;
+  height: 20px;
+  width: 80px;
 }
 
 .checkoutMovieCard {
-    display: flex;
-    padding-bottom: 1rem;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  padding-bottom: 1rem;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.checkoutMovieCard:nth-last-child(1){
-    padding-bottom: 0;
+.checkoutMovieCard:nth-last-child(1) {
+  padding-bottom: 0;
 }
 
 #checkoutForm {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    width: 15vw;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 15vw;
 }
 
 #checkoutForm label {
-    margin-top: 1rem;
+  margin-top: 1rem;
 }
 
 #checkoutFormContent button {
-    width: 15vw;
+  width: 15vw;
 }
 
 #checkOutBasket {
-    padding: 1rem;
-    margin-top: 2rem;
-    border: 1px solid #374151;
-    min-height: 50vh;
-    width: 35vw;
-    border-radius:4px;
+  padding: 1rem;
+  margin-top: 2rem;
+  border: 1px solid #374151;
+  min-height: 50vh;
+  width: 35vw;
+  border-radius: 4px;
 }
 
-#checkOutBasket img{
-    width: 5vw;
+#checkOutBasket img {
+  width: 5vw;
 }
 
 .basketTotal {
-    float: right;
-    padding: 1rem;
+  float: right;
+  padding: 1rem;
 }
 
 .formCheckOut {
-    background-color: #e8bc0e;
-    border: none;
-    font-weight: 500;
-    cursor: pointer;
-    height: 50px;
-    margin-top: 3rem;
+  background-color: #e8bc0e;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  height: 50px;
+  margin-top: 3rem;
 }
 
 #orderConfirmation {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #orderConfirmation img {
-    width: 10vw;
+  width: 10vw;
 }
 
 #imgConfirm {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .footer {
-    margin-top: 4rem;
+  margin-top: 4rem;
 }
 
 @media (max-width: 600px) {
-    #checkOutContent {
-        display: flex;
-        flex-direction: column;
-    }
+  #checkOutContent {
+    display: flex;
+    flex-direction: column;
+  }
 }

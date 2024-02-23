@@ -54,7 +54,8 @@ async function fetchApi() {
             movieImage
           );
         });
-      } if (data.id === id && data.onSale === false) {
+      }
+      if (data.id === id && data.onSale === false) {
         content.innerHTML += `
                     <div id="movieCard">
                         <div class="movieCardImg">
@@ -70,20 +71,20 @@ async function fetchApi() {
                         </div>
                     </div>
                 `;
-                document.querySelector(".addToCart").addEventListener("click", () => {
-                  const movieTitle = data.title;
-                  const moviePrice = data.price;
-                  const movieDiscounted = data.discountedPrice;
-                  const movieOnSale = data.onSale;
-                  const movieImage = data.image;
-                  addToCart(
-                    movieTitle,
-                    moviePrice,
-                    movieDiscounted,
-                    movieOnSale,
-                    movieImage
-                  );
-                });
+        document.querySelector(".addToCart").addEventListener("click", () => {
+          const movieTitle = data.title;
+          const moviePrice = data.price;
+          const movieDiscounted = data.discountedPrice;
+          const movieOnSale = data.onSale;
+          const movieImage = data.image;
+          addToCart(
+            movieTitle,
+            moviePrice,
+            movieDiscounted,
+            movieOnSale,
+            movieImage
+          );
+        });
       }
     }
   } catch (error) {
@@ -163,7 +164,7 @@ function calculateTotal() {
       total += moviePrice.discountedPrice;
     }
   });
-  total = total.toFixed(2)
+  total = total.toFixed(2);
   listCart.innerHTML += `<div class="basketTotal"><h3>Total NOK: ${total}</div>`;
 }
 

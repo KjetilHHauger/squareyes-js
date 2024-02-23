@@ -21,6 +21,9 @@ async function fetchApi() {
   loader.style.display = "block";
   try {
     const response = await fetch(apiUrl);
+    if (!response.ok) {
+      throw new Error("Api response not working");
+    }
     const dataResult = await response.json();
     apiData = dataResult;
     for (let i = 0; i < apiData.length; i++) {
@@ -59,169 +62,32 @@ function renderError() {
   const error = document.getElementById("content");
   error.innerHTML = "ERROR, could not load API data. Please reload";
 }
-function filterAll() {
-  content.innerHTML = "";
-  fetchApi();
+
+function filterByGenre(genreToFilterBy) {
+  return apiData.filter((movie) => movie.genre === genreToFilterBy);
 }
-function filterAction(genreToFilterBy) {
+function renderMovies(movies) {
   content.innerHTML = "";
-  let actionResults = [];
-  for (const data of apiData) {
-    if (data.genre === genreToFilterBy) {
-      actionResults.push(data);
-    }
-    if (data.genre === "Action" && data.onSale === false) {
-      content.innerHTML += `
-            <a href="movie.html?${data.id}"
-                <div id="card">
-                    <img src="${data.image}" alt="Image of ${data.title}">
-                    <div id="price">
-                    <span class="price">${data.price}</span>
-                    </div>
-                </div>
-            </a>
-                `;
-    } else if (data.genre === "Action" && data.onSale === true) {
-      content.innerHTML += `
-                <a href="movie.html?${data.id}"
-                    <div id="card">
-                        <img src="${data.image}" alt="Image of ${data.title}">
-                        <div id="price">
-                            <span class="price">${data.price}</span>
-                            <span class="discounted">${data.discountedPrice}</span>
-                        </div>
-                    </div>
-                </a>`;
-    }
-  }
+  movies.forEach((data) => {
+    const priceHTML = data.onSale
+      ? `
+    <span class="price"><s>${data.price}</s></span><span class="discounted">${data.discountedPrice}</span>`
+      : `<span class="price">${data.price}</span>`;
+    content.innerHTML += `
+    <a href="movie.html?${data.id}">
+      <div id="card">
+        <img src="${data.image}" alt="Image of ${data.title}">
+        <div id="price">
+          ${priceHTML}
+        </div>
+      </div>
+    </a>
+    `;
+  });
 }
-function filterComedy(genreToFilterBy) {
-  content.innerHTML = "";
-  let comedyResults = [];
-  for (const data of apiData) {
-    if (data.genre === genreToFilterBy) {
-      comedyResults.push(data);
-    }
-    if (data.genre === "Comedy" && data.onSale === false) {
-      content.innerHTML += `
-            <a href="movie.html?${data.id}"
-                <div id="card">
-                    <img src="${data.image}" alt="Image of ${data.title}">
-                    <div id="price">
-                    <span class="price">${data.price}</span>
-                    </div>
-                </div>
-            </a>
-                `;
-    } else if (data.genre === "Comedy" && data.onSale === true) {
-      content.innerHTML += `
-                <a href="movie.html?${data.id}"
-                    <div id="card">
-                        <img src="${data.image}" alt="Image of ${data.title}">
-                        <div id="price">
-                            <span class="price">${data.price}</span>
-                            <span class="discounted">${data.discountedPrice}</span>
-                        </div>
-                    </div>
-                </a>`;
-    }
-  }
-}
-function filterDrama(genreToFilterBy) {
-  content.innerHTML = "";
-  let dramaResults = [];
-  for (const data of apiData) {
-    if (data.genre === genreToFilterBy) {
-      dramaResults.push(data);
-    }
-    if (data.genre === "Drama" && data.onSale === true) {
-      content.innerHTML += `
-            <a href="movie.html?${data.id}"
-                <div id="card">
-                    <img src="${data.image}" alt="Image of ${data.title}">
-                    <div id="price">
-                    <span class="price">${data.price}</span>
-                    </div>
-                </div>
-            </a>
-                `;
-    } else if (data.genre === "Drama" && data.onSale === true) {
-      content.innerHTML += `
-                <a href="movie.html?${data.id}"
-                    <div id="card">
-                        <img src="${data.image}" alt="Image of ${data.title}">
-                        <div id="price">
-                            <span class="price">${data.price}</span>
-                            <span class="discounted">${data.discountedPrice}</span>
-                        </div>
-                    </div>
-                </a>`;
-    }
-  }
-}
-function filterHorror(genreToFilterBy) {
-  content.innerHTML = "";
-  let horrorResults = [];
-  for (const data of apiData) {
-    if (data.genre === genreToFilterBy) {
-      horrorResults.push(data);
-    }
-    if (data.genre === "Horror" && data.onSale === false) {
-      content.innerHTML += `
-            <a href="movie.html?${data.id}"
-                <div id="card">
-                    <img src="${data.image}" alt="Image of ${data.title}">
-                    <div id="price">
-                    <span class="price">${data.price}</span>
-                    </div>
-                </div>
-            </a>
-                `;
-    } else if (data.genre === "Horror" && data.onSale === true) {
-      content.innerHTML += `
-                <a href="movie.html?${data.id}"
-                    <div id="card">
-                        <img src="${data.image}" alt="Image of ${data.title}">
-                        <div id="price">
-                            <span class="price">${data.price}</span>
-                            <span class="discounted">${data.discountedPrice}</span>
-                        </div>
-                    </div>
-                </a>`;
-    }
-  }
-}
-function filterKids(genreToFilterBy) {
-  content.innerHTML = "";
-  let kidsResults = [];
-  for (const data of apiData) {
-    if (data.genre === genreToFilterBy) {
-      kidsResults.push(data);
-    }
-    if (data.genre === "Kids" && data.onSale === false) {
-      content.innerHTML += `
-            <a href="movie.html?${data.id}"
-                <div id="card">
-                    <img src="${data.image}" alt="Image of ${data.title}">
-                    <div id="price">
-                    <span class="price">${data.price}</span>
-                    </div>
-                </div>
-            </a>
-                `;
-    } else if (data.genre === "Kids" && data.onSale === true) {
-      content.innerHTML += `
-                <a href="movie.html?${data.id}"
-                    <div id="card">
-                        <img src="${data.image}" alt="Image of ${data.title}">
-                        <div id="price">
-                            <span class="price">${data.price}</span>
-                            <span class="discounted">${data.discountedPrice}</span>
-                        </div>
-                    </div>
-                </a>`;
-    }
-  }
+function handleFilterClick(genreToFilterBy) {
+  const filteredMovies = filterByGenre(genreToFilterBy);
+  renderMovies(filteredMovies);
 }
 function dropdownFilterFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
@@ -229,7 +95,9 @@ function dropdownFilterFunction() {
 function removeCartMovie(event) {
   const removeBtn = event.target;
   const removeMovie = removeBtn.parentElement;
-  const movieToRemove = Array.from(removeMovie.parentElement.children).indexOf(removeMovie);
+  const movieToRemove = Array.from(removeMovie.parentElement.children).indexOf(
+    removeMovie
+  );
   removeMovie.remove();
   cart.splice(movieToRemove, 1);
   localStorage.setItem("myCart", JSON.stringify(cart));
@@ -260,9 +128,9 @@ function updateCart(movieOnSale) {
   });
   const removeBtn = document.querySelectorAll(".remove");
   removeBtn.forEach((button) => {
-      button.removeEventListener("click", removeCartMovie);
-      button.addEventListener("click", removeCartMovie);
-    });
+    button.removeEventListener("click", removeCartMovie);
+    button.addEventListener("click", removeCartMovie);
+  });
   calculateTotal();
 }
 function calculateTotal() {
@@ -275,7 +143,7 @@ function calculateTotal() {
       total += moviePrice.discountedPrice;
     }
   });
-  total = total.toFixed(2)
+  total = total.toFixed(2);
   listCart.innerHTML += `<div class="basketTotal"><h3>Total NOK: ${total}</div>`;
 }
 
@@ -292,22 +160,23 @@ window.onclick = function (dropDownClick) {
 };
 
 allFilter.addEventListener("click", () => {
-  filterAll("All");
+  content.innerHTML = "";
+  fetchApi();
 });
 actionFilter.addEventListener("click", () => {
-  filterAction("Action");
+  handleFilterClick("Action");
 });
 comedyFilter.addEventListener("click", () => {
-  filterComedy("Comedy");
+  handleFilterClick("Comedy");
 });
 dramaFilter.addEventListener("click", () => {
-  filterDrama("Drama");
+  handleFilterClick("Drama");
 });
 horrorFilter.addEventListener("click", () => {
-  filterHorror("Horror");
+  handleFilterClick("Horror");
 });
 kidsFilter.addEventListener("click", () => {
-  filterKids("Kids");
+  handleFilterClick("Kids");
 });
 iconCart.addEventListener("click", () => {
   body.classList.toggle("showCart");
@@ -322,12 +191,11 @@ checkout.addEventListener("click", () => {
     location.href = "../checkout.html";
   }
 });
-document.addEventListener("click", function(removeEvent) {
+document.addEventListener("click", function (removeEvent) {
   if (removeEvent.target.classList.contains("remove")) {
-    removeCartMovie(removeEvent)
+    removeCartMovie(removeEvent);
   }
-})
-
+});
 
 fetchApi();
 
