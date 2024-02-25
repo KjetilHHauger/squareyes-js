@@ -235,13 +235,21 @@ body.showCart .content {
   margin-top: 3rem;
 }
 
+#titleConfirm {
+  display: flex;
+  justify-content: center;
+}
 #orderConfirmation {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-#orderConfirmation img {
+#orderConfirmation img{
+  width: 10vw;
+}
+
+#imgConfirm img {
   width: 10vw;
 }
 

@@ -1,4 +1,5 @@
 const orderConfirmation = document.getElementById("orderConfirmation");
+const imgConfirm = document.getElementById("imgConfirm");
 
 let cart = JSON.parse(localStorage.getItem("myCart")) || [];
 
