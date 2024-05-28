@@ -1,16 +1,20 @@
 # SquareEyes
 
-Welcome to **SquareEyes**, a dynamic web application designed to showcase movies using JavaScript and a school API. This project integrates robust front-end technologies to provide an interactive and engaging user experience, allowing users to browse movies, filter them by genre, and manage a shopping cart.
+Welcome to **SquareEyes**, a dynamic web application designed to showcase movies. This project leverages JavaScript and a school API to provide an interactive platform where users can browse movies, filter them by genre, and manage a shopping cart.
+
+![Project Image](assets/images/readme.png)
 
 ## Features
 
-- **Dynamic Movie Display**: Movies are dynamically loaded onto the main page using JavaScript which fetches data from a school API.
-- **Genre Filtering**: Users can filter movies based on genre to find their preferred type of content quickly.
-- **Interactive Shopping Cart**: Users can add movies to their cart, view the cart with a total cost calculation, and remove movies if desired.
-- **Checkout Process**: A simulated checkout process where users can enter their details (name, address, and email) and review their cart before final confirmation.
-- **Confirmation Screen**: After checking out, users receive a confirmation screen, enhancing the shopping experience.
+- **Dynamic Movie Display**: Utilizes JavaScript to dynamically load movies onto the main page from a school API.
+- **Genre Filtering**: Allows users to filter movies based on genre, enhancing the browsing experience.
+- **Interactive Shopping Cart**: Enables users to add movies to their cart, view the total cost, and modify the cart items as needed.
+- **Checkout Process**: Features a simulated checkout process where users can input their details for a mock purchase.
+- **Confirmation Screen**: Provides a confirmation screen post-checkout to confirm the transaction and enhance user satisfaction.
 
 ## Project Structure
+
+
 
 /SquareEyes<br>
 |-- /assets<br>
