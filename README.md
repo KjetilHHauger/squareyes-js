@@ -14,8 +14,6 @@ Welcome to **SquareEyes**, a dynamic web application designed to showcase movies
 
 ## Project Structure
 
-
-
 /SquareEyes<br>
 |-- /assets<br>
 |  -- /images # Images used in the project<br>
@@ -50,3 +48,13 @@ No installation is required to view the live demo. However, if you wish to run t
 - **Filter Movies**: Use the genre filter on the main page to narrow down your movie choices.
 - **Add to Cart and** Checkout: Click on any movie to add it to your cart. Go to your cart, adjust quantities or remove items, and proceed to checkout by filling in dummy fields.
 
+## Contributing
+Contributions to improve the project are always welcome. Please feel free to fork the repository, make changes, and submit pull requests. Ensure you provide a detailed description of your changes and improvements.
+
+## Contact
+[My LinkedIn](https://www.linkedin.com/in/kjetil-harneshaug-hauger-00851084/)
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+Thank you for visiting the SquareEyes repository. Explore the codebase and enjoy using the application!
