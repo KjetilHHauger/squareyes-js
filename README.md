@@ -13,8 +13,8 @@ Welcome to **SquareEyes**, a dynamic web application designed to showcase movies
 ## Project Structure
 
 /SquareEyes
-|-- /assets
-| `-- /images # Images used in the project
+|-- /assets<br>
+| `-- /images # Images used in the project<br>
 |-- /css # CSS files for styling
 |-- /js # JavaScript files for functionality
 |-- LICENSE # Project License
