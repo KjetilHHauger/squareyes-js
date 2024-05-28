@@ -38,7 +38,7 @@ Welcome to **SquareEyes**, a dynamic web application designed to showcase movies
    git clone https://github.com/yourusername/SquareEyes.git
 
 ## How to Use
-- **Browse Movies: Visit the main page to see the latest movies loaded from the API.
-- **Filter Movies: Use the genre filter on the main page to narrow down your movie choices.
-- **Add to Cart and Checkout: Click on any movie to add it to your cart. Go to your cart, adjust quantities or remove items, and proceed to checkout by filling in dummy fields.
+- **Browse Movies**: Visit the main page to see the latest movies loaded from the API.
+- **Filter Movies**: Use the genre filter on the main page to narrow down your movie choices.
+- **Add to Cart and** Checkout: Click on any movie to add it to your cart. Go to your cart, adjust quantities or remove items, and proceed to checkout by filling in dummy fields.
 
