@@ -35,7 +35,7 @@ Welcome to **SquareEyes**, a dynamic web application designed to showcase movies
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/SquareEyes.git
+   git clone https://github.com/KjetilHHauger/SquareEyes.git
 
 ## How to Use
 - **Browse Movies**: Visit the main page to see the latest movies loaded from the API.
