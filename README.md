@@ -33,6 +33,8 @@ Welcome to **SquareEyes**, a dynamic web application designed to showcase movies
 
 ## Setup and Installation
 
+No installation is required to view the live demo. However, if you wish to run the project locally or contribute, you may clone the repository using the following command:
+
 1. Clone the repository:
    ```bash
    git clone https://github.com/KjetilHHauger/SquareEyes.git
