@@ -12,17 +12,17 @@ Welcome to **SquareEyes**, a dynamic web application designed to showcase movies
 
 ## Project Structure
 
-/SquareEyes
+/SquareEyes<br>
 |-- /assets<br>
 | `-- /images # Images used in the project<br>
-|-- /css # CSS files for styling
-|-- /js # JavaScript files for functionality
-|-- LICENSE # Project License
-|-- README.md # Project documentation
-|-- checkout.html # Checkout page
-|-- index.html # Main page where movies are displayed
-|-- movie.html # Individual movie details page
-|-- success.html # Confirmation page after checkout
+|-- /css # CSS files for styling<br>
+|-- /js # JavaScript files for functionality<br>
+|-- LICENSE # Project License<br>
+|-- README.md # Project documentation<br>
+|-- checkout.html # Checkout page<br>
+|-- index.html # Main page where movies are displayed<br>
+|-- movie.html # Individual movie details page<br>
+|-- success.html # Confirmation page after checkout<br>
 
 
 ## Technologies Used
