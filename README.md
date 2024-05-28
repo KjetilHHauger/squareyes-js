@@ -14,7 +14,7 @@ Welcome to **SquareEyes**, a dynamic web application designed to showcase movies
 
 /SquareEyes<br>
 |-- /assets<br>
-| -- /images # Images used in the project<br>
+|  -- /images # Images used in the project<br>
 |-- /css # CSS files for styling<br>
 |-- /js # JavaScript files for functionality<br>
 |-- LICENSE # Project License<br>
