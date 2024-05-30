@@ -50,7 +50,7 @@ No installation is required to view the live demo. However, if you wish to run t
 
 ## LIVE site
 
-[SquareEyes](https://kjetilhhauger.github.io/squareyes-js/)
+[Square Eyes](https://khhsquareeyes.netlify.app/)
 
 ## Contributing
 Contributions to improve the project are always welcome. Please feel free to fork the repository, make changes, and submit pull requests. Ensure you provide a detailed description of your changes and improvements.
